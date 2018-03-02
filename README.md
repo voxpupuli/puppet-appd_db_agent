@@ -1,4 +1,10 @@
-# appd\_db\_agent
+# puppet/appd\_db\_agent
+
+[![License](https://img.shields.io/github/license/voxpupuli/puppet-appd_db_agent.svg)](https://github.com/voxpupuli/puppet-appd_db_agent/blob/master/LICENSE)
+[![Build Status](https://travis-ci.org/voxpupuli/puppet-appd_db_agent.png?branch=master)](https://travis-ci.org/voxpupuli/puppet-appd_db_agent)
+[![Puppet Forge](https://img.shields.io/puppetforge/v/puppet/appd_db_agent.svg)](https://forge.puppetlabs.com/puppet/appd_db_agent)
+[![Puppet Forge - downloads](https://img.shields.io/puppetforge/dt/puppet/appd_db_agent.svg)](https://forge.puppetlabs.com/puppet/appd_db_agent)
+[![Puppet Forge - scores](https://img.shields.io/puppetforge/f/puppet/appd_db_agent.svg)](https://forge.puppetlabs.com/puppet/appd_db_agent)
 
 ## Table of Contents
 
