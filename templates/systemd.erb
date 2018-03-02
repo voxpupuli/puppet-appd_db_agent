@@ -1,0 +1,14 @@
+[Unit]
+Description=Appdynamics Database Agent
+After=network.target
+
+[Service]
+Type=simple
+User=<%= @user %>
+EnvironmentFile=-/etc/sysconfig/appd_db_agent
+ExecStart=<%= @java_home %>/jre/bin/java <%= @java_opts.join(' ') %> -jar /opt/appdynamics/dbagent/db-agent.jar -XX:+ExitOnOutOfMemoryError
+SuccessExitStatus=143
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

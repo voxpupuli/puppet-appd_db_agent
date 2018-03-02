@@ -1,0 +1,11 @@
+# THIS FILE IS MANAGED BY PUPPET.  CHANGES WILL BE OVERRIDDEN
+
+APPDYNAMICS_CONTROLLER_HOST_NAME=<%= @controller_host_name %>
+APPDYNAMICS_CONTROLLER_PORT=<%= @controller_port %>
+APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY=<%= @agent_account_access_key %>
+<%- if @agent_account_name -%>
+APPDYNAMICS_AGENT_ACCOUNT_NAME=<%= @agent_account_name %>
+<%- end -%>
+<%- unless @controller_ssl_enabled.nil? -%>
+APPDYNAMICS_CONTROLLER_SSL_ENABLED=<%= @controller_ssl_enabled %>
+<%- end -%>
