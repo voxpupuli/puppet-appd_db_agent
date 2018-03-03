@@ -20,7 +20,7 @@
 
 ## Description
 
-This module installs, configures and provides a systemd based service for the Appdynamics Database Agent.
+This module installs, configures and provides a systemd based service for the [AppDynamics Database Agent](https://docs.appdynamics.com/display/PRO44/Database+Visibility).
 It has been developed and tested with dbagent version 4.4.1.229 on CentOS 7 with Puppet 4.10.
 It should also work on Puppet 5 and on other RedHat Enterprise 7 clones.
 
@@ -39,7 +39,7 @@ including `puppetlabs/java`.
 
 ### Setup Requirements
 
-Appdynamics doesn't provide an anoymous download link for the agent.
+AppDynamics doesn't provide an anonymous download link for the agent.
 You will have to provide the dbagent zip yourself. You have several choices for hosting it yourself.
 You could make it available over http via an artifact repository such as Artifactory or Nexus.
 Or you could make it available using your puppetserver's fileserver by placing the zip in your site module
@@ -57,11 +57,13 @@ The module has a single public class.  There are several optional parameters, bu
 * The version of the dbagent you're installing.
   This isn't automatically extracted from the source URL.  It should be the complete version number eg `4.4.1.2`.
 * The controller host name.
-  The module should work with local and hosted Appdynamics controllers.
+  The module should work with local and hosted AppDynamics controllers.
 * The controller port number.
   If using the hosted service, this will be 443.
 * The password to use as the Agent Account Access Key.
 
+You should also consider how much heap space to allocate to the JVM running the agent.  This module defaults the parameter `java_heap_size` to just 256MB.
+AppDynamic's [recommend](https://docs.appdynamics.com/display/PRO44/Database+Visibility+System+Requirements) 1GB + 512MB for each monitored database.
 ## Usage
 
 A minimal example where the agent zip is stored in a `site` module and a locally installed controller is used.
