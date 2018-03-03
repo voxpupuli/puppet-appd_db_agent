@@ -1,12 +1,17 @@
 {
-  "name": "todo-appd_db_agent",
+  "name": "puppet-appd_db_agent",
   "version": "0.1.0-rc0",
-  "author": "TODO",
+  "author": "Vox Pupuli",
   "summary": "Puppet Appdynamics Database Agent Module",
   "license": "Apache-2.0",
-  "source": "TODO",
-  "project_page": "TODO",
-  "issues_url": "TODO",
+  "source": "https://github.com/voxpupuli/puppet-appd_db_agent.git",
+  "project_page": "http://github.com/voxpupuli/puppet-appd_db_agent",
+  "issues_url": "https://github.com/voxpupuli/puppet-appd_db_agent/issues",
+  "tags": [
+    "appd",
+    "appdynamics",
+    "dbagent"
+  ],
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
