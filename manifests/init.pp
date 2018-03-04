@@ -41,6 +41,12 @@ class appd_db_agent(
   Optional[Stdlib::Unixpath]         $java_home      = '/usr/lib/jvm/java',
 )
 {
+  if $proxy_host {
+    assert_type(Integer[0, 65535], $proxy_port) |$expected, $actual| {
+      fail('proxy_port must be specified when using proxy_host')
+    }
+  }
+
   contain appd_db_agent::install
   contain appd_db_agent::config
   contain appd_db_agent::service

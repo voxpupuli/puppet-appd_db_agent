@@ -34,6 +34,14 @@ describe 'appd_db_agent', type: :class do
         it { is_expected.to contain_class('appd_db_agent::config').that_requires('Class[appd_db_agent::install]') }
         it { is_expected.to contain_class('appd_db_agent::service').that_subscribes_to('Class[appd_db_agent::config]') }
       end
+
+      context 'when proxy_host is specified without proxy_port' do
+        let :params do
+          required_parameters.merge(proxy_host: 'squid.example.com')
+        end
+
+        it { is_expected.to compile.and_raise_error(%r{proxy_port must be specified when using proxy_host}) }
+      end
     end
   end
 end
