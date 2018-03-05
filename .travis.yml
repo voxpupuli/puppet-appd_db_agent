@@ -40,7 +40,7 @@ deploy:
   provider: puppetforge
   user: puppet
   password:
-    secure: ""
+    secure: "2pLVlJ/AmrLIWVTxgn4VOpnc5YXvT4RmVqZFa93Ln4v6l68urqDV8LnvLpCmf/sBA++TD0WKsBZT/p14qUJsMu2MYy3EVddJEC9TnyTMpKcisSsDEe+Isa8U9GpGuaPZBOKFZy2qwvUtVBIoVIFGj8sh4rIg0pjoVXKPY2knZ8QYrP2brFrvoCtpYDltpilSQnRoi4t0GtDaMQfA6Ps3vXFujmp7OFnJ+c0YS4v6Dz3cDnBB8KgGrWIzZeBn3LLyuYn4QOYRi+fKHxjofjwRb8rYl8hBwQqrDS5vJzf/oRg9NmglUgHoyHy4MHMR9Kc0pV4xZJ8E20saljsnfYkgvpyRXE5W0La3p+TiyoPlUH6oE+/lC9Nbx9zefunGyiIeN7JPv1pmExL5YYMbBBvy2v605l+Now53cnDQWX6He0knvjGCLE1VK2ibFvykhud3qBYCpJzAIjVlfIj3xXz6JhBOCcQdovfcH0A+pv2GNEZi/yoGq65rsIqGElgrmzTEYhUi/5bxvR+yhk3aRpfcNH5njNr0AXK15FICEahndqFnxwzUvAuIAEZfEe0PlEUTDcksbn6YBx+OAKYhSVZgOVgGKwgnXQmKmHTxhpLxrhj6iN6G4ysBizCG2KaFqEm2sKLM2Juu+DeUkeOC1AZgWSp9JJvz9vTcoS/YbUttV4k="
   on:
     tags: true
     # all_branches is required to use tags
