@@ -22,7 +22,7 @@ The following parameters are available in the `appd_db_agent` class.
 
 Data type: `String`
 
-The source location of the dbagent-x.x.x.x.zip file.  Can be any source that puppet/archive supports.
+The source location of the dbagent-x.x.x.x.zip file.  Can be any source that [puppet/archive](https://forge.puppet.com/puppet/archive) supports.
 
 ##### `version`
 
@@ -92,7 +92,7 @@ Default value: `undef`
 
 Data type: `Optional[String]`
 
-Passed to the puppet/archive module when downloading the zip.
+Passed to the [puppet/archive](https://forge.puppet.com/puppet/archive) module when downloading the zip.
 
 Default value: `undef`
 
@@ -100,7 +100,7 @@ Default value: `undef`
 
 Data type: `Optional[Enum['md5', 'sha1', 'sha2', 'sha256', 'sha384', 'sha512']]`
 
-Passed to the puppet/archive module when downloading the zip.
+Passed to the [puppet/archive](https://forge.puppet.com/puppet/archive) module when downloading the zip.
 
 Default value: `undef`
 
@@ -116,7 +116,7 @@ Default value: `undef`
 
 Data type: `Optional[Integer[0, 65535]]`
 
-The port HTTP proxy port.  Required when proxy_host is set.
+The HTTP proxy port.  Required when proxy_host is set.
 
 Default value: `undef`
 
