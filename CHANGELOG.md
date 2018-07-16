@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v0.2.0](https://github.com/voxpupuli/puppet-appd_db_agent/tree/v0.2.0) (2018-07-15)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-appd_db_agent/compare/v0.1.1...v0.2.0)
+
+**Merged pull requests:**
+
+- allow camptocamp/systemd 2.X [\#11](https://github.com/voxpupuli/puppet-appd_db_agent/pull/11) ([bastelfreak](https://github.com/bastelfreak))
+- Remove docker nodesets [\#10](https://github.com/voxpupuli/puppet-appd_db_agent/pull/10) ([bastelfreak](https://github.com/bastelfreak))
+
 ## [v0.1.1](https://github.com/voxpupuli/puppet-appd_db_agent/tree/v0.1.1) (2018-03-05)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-appd_db_agent/compare/v0.1.0...v0.1.1)
