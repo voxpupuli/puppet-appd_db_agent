@@ -6,7 +6,7 @@
 <title>
   Puppet Class: appd_db_agent
   
-    &mdash; Documentation by YARD 0.9.12
+    &mdash; Documentation by YARD 0.9.18
   
 </title>
 
@@ -80,6 +80,8 @@
     
   </div>
 </div>
+
+
 <div class="tags">
   <p class="tag_title">Parameters:</p>
 <ul class="param">
@@ -119,7 +121,7 @@
         <span class='name'>controller_host_name</span>
       
       
-        <span class='type'>(<tt>String</tt>)</span>
+        <span class='type'>(<tt>Stdlib::Host</tt>)</span>
       
       
       
@@ -134,7 +136,7 @@
         <span class='name'>controller_port</span>
       
       
-        <span class='type'>(<tt>Integer[0, 65535]</tt>)</span>
+        <span class='type'>(<tt>Stdlib::Port</tt>)</span>
       
       
       
@@ -283,7 +285,7 @@
         <span class='name'>proxy_host</span>
       
       
-        <span class='type'>(<tt>Optional[String]</tt>)</span>
+        <span class='type'>(<tt>Optional[Stdlib::Host]</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>undef</tt>)</em>
@@ -300,7 +302,7 @@
         <span class='name'>proxy_port</span>
       
       
-        <span class='type'>(<tt>Optional[Integer[0, 65535]]</tt>)</span>
+        <span class='type'>(<tt>Optional[Stdlib::Port]</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>undef</tt>)</em>
@@ -419,8 +421,8 @@ class appd_db_agent(
   String $source,
   String $version,
 
-  String            $controller_host_name, # TODO: Use Stdlib::Host when stdlib 4.25.0 is released
-  Integer[0, 65535] $controller_port,
+  Stdlib::Host      $controller_host_name,
+  Stdlib::Port      $controller_port,
   String            $agent_account_access_key,
 
   String            $user                   = &#39;appdynamics&#39;,
@@ -432,15 +434,15 @@ class appd_db_agent(
   Optional[String] $checksum = undef,
   Optional[Enum[&#39;md5&#39;, &#39;sha1&#39;, &#39;sha2&#39;, &#39;sha256&#39;, &#39;sha384&#39;, &#39;sha512&#39;]] $checksum_type = undef,
 
-  Optional[String]                   $proxy_host     = undef,
-  Optional[Integer[0, 65535]]        $proxy_port     = undef,
+  Optional[Stdlib::Host]             $proxy_host     = undef,
+  Optional[Stdlib::Port]             $proxy_port     = undef,
   Optional[String[1]]                $db_agent_name  = undef,
   Optional[Pattern[/^\d+[kKmMgG]$/]] $java_heap_size = &#39;256m&#39;,
   Optional[Stdlib::Unixpath]         $java_home      = &#39;/usr/lib/jvm/java&#39;,
 )
 {
   if $proxy_host {
-    assert_type(Integer[0, 65535], $proxy_port) |$expected, $actual| {
+    assert_type(Stdlib::Port, $proxy_port) |$expected, $actual| {
       fail(&#39;proxy_port must be specified when using proxy_host&#39;)
     }
   }

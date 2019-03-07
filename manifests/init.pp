@@ -21,8 +21,8 @@ class appd_db_agent(
   String $source,
   String $version,
 
-  String            $controller_host_name, # TODO: Use Stdlib::Host when stdlib 4.25.0 is released
-  Integer[0, 65535] $controller_port,
+  Stdlib::Host      $controller_host_name,
+  Stdlib::Port      $controller_port,
   String            $agent_account_access_key,
 
   String            $user                   = 'appdynamics',
@@ -34,15 +34,15 @@ class appd_db_agent(
   Optional[String] $checksum = undef,
   Optional[Enum['md5', 'sha1', 'sha2', 'sha256', 'sha384', 'sha512']] $checksum_type = undef,
 
-  Optional[String]                   $proxy_host     = undef,
-  Optional[Integer[0, 65535]]        $proxy_port     = undef,
+  Optional[Stdlib::Host]             $proxy_host     = undef,
+  Optional[Stdlib::Port]             $proxy_port     = undef,
   Optional[String[1]]                $db_agent_name  = undef,
   Optional[Pattern[/^\d+[kKmMgG]$/]] $java_heap_size = '256m',
   Optional[Stdlib::Unixpath]         $java_home      = '/usr/lib/jvm/java',
 )
 {
   if $proxy_host {
-    assert_type(Integer[0, 65535], $proxy_port) |$expected, $actual| {
+    assert_type(Stdlib::Port, $proxy_port) |$expected, $actual| {
       fail('proxy_port must be specified when using proxy_host')
     }
   }
