@@ -2,15 +2,15 @@
 # This class handles the installation.
 class appd_db_agent::install
 {
-  $version       = $::appd_db_agent::version
-  $source        = $::appd_db_agent::source
-  $checksum      = $::appd_db_agent::checksum
-  $checksum_type = $::appd_db_agent::checksum_type
+  $version       = $appd_db_agent::version
+  $source        = $appd_db_agent::source
+  $checksum      = $appd_db_agent::checksum
+  $checksum_type = $appd_db_agent::checksum_type
 
-  $user  = $::appd_db_agent::user
-  $group = $::appd_db_agent::group
+  $user  = $appd_db_agent::user
+  $group = $appd_db_agent::group
 
-  $manage_user = $::appd_db_agent::manage_user
+  $manage_user = $appd_db_agent::manage_user
 
   include java
 

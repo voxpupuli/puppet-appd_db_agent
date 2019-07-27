@@ -2,18 +2,18 @@
 # This class handles the configuration.
 class appd_db_agent::config
 {
-  $controller_host_name     = $::appd_db_agent::controller_host_name
-  $controller_port          = $::appd_db_agent::controller_port
-  $agent_account_access_key = $::appd_db_agent::agent_account_access_key
-  $agent_account_name       = $::appd_db_agent::agent_account_name
-  $controller_ssl_enabled   = $::appd_db_agent::controller_ssl_enabled
+  $controller_host_name     = $appd_db_agent::controller_host_name
+  $controller_port          = $appd_db_agent::controller_port
+  $agent_account_access_key = $appd_db_agent::agent_account_access_key
+  $agent_account_name       = $appd_db_agent::agent_account_name
+  $controller_ssl_enabled   = $appd_db_agent::controller_ssl_enabled
 
-  $proxy_host     = $::appd_db_agent::proxy_host
-  $proxy_port     = $::appd_db_agent::proxy_port
-  $db_agent_name  = $::appd_db_agent::db_agent_name
-  $java_heap_size = $::appd_db_agent::java_heap_size
-  $java_home      = $::appd_db_agent::java_home
-  $user           = $::appd_db_agent::user
+  $proxy_host     = $appd_db_agent::proxy_host
+  $proxy_port     = $appd_db_agent::proxy_port
+  $db_agent_name  = $appd_db_agent::db_agent_name
+  $java_heap_size = $appd_db_agent::java_heap_size
+  $java_home      = $appd_db_agent::java_home
+  $user           = $appd_db_agent::user
 
   file { '/etc/sysconfig/appd_db_agent':
     ensure  => file,
