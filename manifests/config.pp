@@ -1,7 +1,6 @@
 # @api private
 # This class handles the configuration.
-class appd_db_agent::config
-{
+class appd_db_agent::config {
   $controller_host_name     = $appd_db_agent::controller_host_name
   $controller_port          = $appd_db_agent::controller_port
   $agent_account_access_key = $appd_db_agent::agent_account_access_key

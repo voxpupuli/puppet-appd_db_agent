@@ -1,7 +1,6 @@
 # @api private
 # This class handles the installation.
-class appd_db_agent::install
-{
+class appd_db_agent::install {
   $version       = $appd_db_agent::version
   $source        = $appd_db_agent::source
   $checksum      = $appd_db_agent::checksum

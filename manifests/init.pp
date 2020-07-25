@@ -17,7 +17,7 @@
 # @param db_agent_name The name you want the agent to appear as in the controller.
 # @param java_heap_size The heap size for the java process.  The default is very low and should be increased according to how many databases the agent will connect to and in line with the AppDynamics documentation.
 # @param java_home The java home of the JRE you want to use.
-class appd_db_agent(
+class appd_db_agent (
   String $source,
   String $version,
 
@@ -39,8 +39,7 @@ class appd_db_agent(
   Optional[String[1]]                $db_agent_name  = undef,
   Optional[Pattern[/^\d+[kKmMgG]$/]] $java_heap_size = '256m',
   Optional[Stdlib::Unixpath]         $java_home      = '/usr/lib/jvm/java',
-)
-{
+) {
   if $proxy_host {
     assert_type(Stdlib::Port, $proxy_port) |$expected, $actual| {
       fail('proxy_port must be specified when using proxy_host')
