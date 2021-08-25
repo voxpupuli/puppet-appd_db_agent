@@ -3,4 +3,4 @@ fixtures:
     stdlib: "https://github.com/puppetlabs/puppetlabs-stdlib.git"
     java: "https://github.com/puppetlabs/puppetlabs-java"
     archive: "https://github.com/voxpupuli/puppet-archive"
-    systemd: "https://github.com/camptocamp/puppet-systemd"
+    systemd: "https://github.com/voxpupuli/puppet-systemd"
