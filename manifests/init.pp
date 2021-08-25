@@ -37,8 +37,8 @@ class appd_db_agent (
   Optional[Stdlib::Host]             $proxy_host     = undef,
   Optional[Stdlib::Port]             $proxy_port     = undef,
   Optional[String[1]]                $db_agent_name  = undef,
-  Optional[Pattern[/^\d+[kKmMgG]$/]] $java_heap_size = '256m',
-  Optional[Stdlib::Unixpath]         $java_home      = '/usr/lib/jvm/java',
+  Pattern[/^\d+[kKmMgG]$/]           $java_heap_size = '256m',
+  Stdlib::Unixpath                   $java_home      = '/usr/lib/jvm/java',
 ) {
   if $proxy_host {
     assert_type(Stdlib::Port, $proxy_port) |$expected, $actual| {
