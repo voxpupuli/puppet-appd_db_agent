@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'appd_db_agent', type: :class do
   let :required_parameters do
     {
-      source:  'https://example.com/dbagent-4.4.1.229.zip',
+      source: 'https://example.com/dbagent-4.4.1.229.zip',
       version: '4.4.1.229',
       controller_host_name: 'exampleorg.saas.appdynamics.com',
       controller_port: 443,
@@ -25,54 +27,60 @@ describe 'appd_db_agent', type: :class do
 
           it { is_expected.to contain_class('appd_db_agent::install') }
           it { is_expected.to contain_group('appdynamics').with_ensure('present') }
+
           it {
-            is_expected.to contain_user('appdynamics').with(
-              'ensure'     => 'present',
-              'gid'        => 'appdynamics',
-              'home'       => '/opt/appdynamics',
+            expect(subject).to contain_user('appdynamics').with(
+              'ensure' => 'present',
+              'gid' => 'appdynamics',
+              'home' => '/opt/appdynamics',
               'managehome' => false,
-              'shell'      => '/sbin/nologin',
-              'system'     => true
+              'shell' => '/sbin/nologin',
+              'system' => true
             )
           }
+
           it {
-            is_expected.to contain_file('/opt/appdynamics').with(
+            expect(subject).to contain_file('/opt/appdynamics').with(
               'ensure' => 'directory',
-              'owner'  => 'appdynamics',
-              'group'  => 'appdynamics',
-              'mode'   => '0640'
+              'owner' => 'appdynamics',
+              'group' => 'appdynamics',
+              'mode' => '0640'
             )
           }
+
           it {
-            is_expected.to contain_file('/opt/appdynamics/dbagent-4.4.1.229').with(
+            expect(subject).to contain_file('/opt/appdynamics/dbagent-4.4.1.229').with(
               'ensure' => 'directory',
-              'owner'  => 'appdynamics',
-              'group'  => 'appdynamics',
-              'mode'   => '0640'
+              'owner' => 'appdynamics',
+              'group' => 'appdynamics',
+              'mode' => '0640'
             )
           }
+
           it {
-            is_expected.to contain_archive('/tmp/dbagent-4.4.1.229.zip').with(
-              'ensure'       => 'present',
-              'source'       => 'https://example.com/dbagent-4.4.1.229.zip',
-              'extract'      => true,
+            expect(subject).to contain_archive('/tmp/dbagent-4.4.1.229.zip').with(
+              'ensure' => 'present',
+              'source' => 'https://example.com/dbagent-4.4.1.229.zip',
+              'extract' => true,
               'extract_path' => '/opt/appdynamics/dbagent-4.4.1.229',
-              'creates'      => '/opt/appdynamics/dbagent-4.4.1.229/db-agent.jar',
-              'cleanup'      => true,
-              'user'         => 'appdynamics',
-              'group'        => 'appdynamics'
+              'creates' => '/opt/appdynamics/dbagent-4.4.1.229/db-agent.jar',
+              'cleanup' => true,
+              'user' => 'appdynamics',
+              'group' => 'appdynamics'
             ).that_requires('File[/opt/appdynamics/dbagent-4.4.1.229]')
           }
+
           it {
-            is_expected.to contain_file('/opt/appdynamics/dbagent').with(
+            expect(subject).to contain_file('/opt/appdynamics/dbagent').with(
               'ensure' => 'link',
-              'owner'  => 'appdynamics',
-              'group'  => 'appdynamics',
+              'owner' => 'appdynamics',
+              'group' => 'appdynamics',
               'target' => '/opt/appdynamics/dbagent-4.4.1.229',
-              'mode'   => '0640'
+              'mode' => '0640'
             )
           }
         end
+
         context 'with user parameter set' do
           let :params do
             required_parameters.merge(
@@ -86,6 +94,7 @@ describe 'appd_db_agent', type: :class do
           it { is_expected.to contain_file('/opt/appdynamics/dbagent').with_owner('someuser') }
           it { is_expected.to contain_archive('/tmp/dbagent-4.4.1.229.zip').with_user('someuser') }
         end
+
         context 'with group parameter set' do
           let :params do
             required_parameters.merge(
@@ -100,6 +109,7 @@ describe 'appd_db_agent', type: :class do
           it { is_expected.to contain_file('/opt/appdynamics/dbagent').with_group('somegroup') }
           it { is_expected.to contain_archive('/tmp/dbagent-4.4.1.229.zip').with_group('somegroup') }
         end
+
         context 'with manage_user set to false' do
           let :params do
             required_parameters.merge(

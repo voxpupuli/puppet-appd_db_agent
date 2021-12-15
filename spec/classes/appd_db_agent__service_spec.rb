@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'appd_db_agent', type: :class do
   let :required_parameters do
     {
-      source:  'https://example.com/dbagent-4.4.1.229.zip',
+      source: 'https://example.com/dbagent-4.4.1.229.zip',
       version: '4.4.1.229',
       controller_host_name: 'exampleorg.saas.appdynamics.com',
       controller_port: 443,
@@ -24,7 +26,7 @@ describe 'appd_db_agent', type: :class do
           end
 
           it {
-            is_expected.to contain_service('appd_db_agent').with(
+            expect(subject).to contain_service('appd_db_agent').with(
               'ensure' => 'running',
               'enable' => true
             )
