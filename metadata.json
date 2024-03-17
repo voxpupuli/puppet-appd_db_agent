@@ -19,15 +19,15 @@
     },
     {
       "name": "puppetlabs/java",
-      "version_requirement": ">= 1.5.0 < 5.0.0"
+      "version_requirement": ">= 1.5.0 < 11.0.0"
     },
     {
       "name": "puppet/archive",
-      "version_requirement": ">= 1.1.2 < 6.0.0"
+      "version_requirement": ">= 1.1.2 < 8.0.0"
     },
     {
       "name": "puppet/systemd",
-      "version_requirement": ">= 1.0.0 < 5.0.0"
+      "version_requirement": ">= 1.0.0 < 7.0.0"
     }
   ],
   "requirements": [
