@@ -9,7 +9,7 @@ describe 'appd_db_agent', type: :class do
       version: '4.4.1.229',
       controller_host_name: 'exampleorg.saas.appdynamics.com',
       controller_port: 443,
-      agent_account_access_key: 'secretsecret'
+      agent_account_access_key: 'secretsecret',
     }
   end
 
@@ -35,7 +35,7 @@ describe 'appd_db_agent', type: :class do
               'home' => '/opt/appdynamics',
               'managehome' => false,
               'shell' => '/sbin/nologin',
-              'system' => true
+              'system' => true,
             )
           }
 
@@ -44,7 +44,7 @@ describe 'appd_db_agent', type: :class do
               'ensure' => 'directory',
               'owner' => 'appdynamics',
               'group' => 'appdynamics',
-              'mode' => '0640'
+              'mode' => '0640',
             )
           }
 
@@ -53,7 +53,7 @@ describe 'appd_db_agent', type: :class do
               'ensure' => 'directory',
               'owner' => 'appdynamics',
               'group' => 'appdynamics',
-              'mode' => '0640'
+              'mode' => '0640',
             )
           }
 
@@ -66,7 +66,7 @@ describe 'appd_db_agent', type: :class do
               'creates' => '/opt/appdynamics/dbagent-4.4.1.229/db-agent.jar',
               'cleanup' => true,
               'user' => 'appdynamics',
-              'group' => 'appdynamics'
+              'group' => 'appdynamics',
             ).that_requires('File[/opt/appdynamics/dbagent-4.4.1.229]')
           }
 
@@ -76,7 +76,7 @@ describe 'appd_db_agent', type: :class do
               'owner' => 'appdynamics',
               'group' => 'appdynamics',
               'target' => '/opt/appdynamics/dbagent-4.4.1.229',
-              'mode' => '0640'
+              'mode' => '0640',
             )
           }
         end
@@ -84,7 +84,7 @@ describe 'appd_db_agent', type: :class do
         context 'with user parameter set' do
           let :params do
             required_parameters.merge(
-              user: 'someuser'
+              user: 'someuser',
             )
           end
 
@@ -98,7 +98,7 @@ describe 'appd_db_agent', type: :class do
         context 'with group parameter set' do
           let :params do
             required_parameters.merge(
-              group: 'somegroup'
+              group: 'somegroup',
             )
           end
 
@@ -113,7 +113,7 @@ describe 'appd_db_agent', type: :class do
         context 'with manage_user set to false' do
           let :params do
             required_parameters.merge(
-              manage_user: false
+              manage_user: false,
             )
           end
 

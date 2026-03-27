@@ -9,7 +9,7 @@ describe 'appd_db_agent', type: :class do
       version: '4.4.1.229',
       controller_host_name: 'exampleorg.saas.appdynamics.com',
       controller_port: 443,
-      agent_account_access_key: 'secretsecret'
+      agent_account_access_key: 'secretsecret',
     }
   end
 
@@ -28,7 +28,7 @@ describe 'appd_db_agent', type: :class do
           it {
             expect(subject).to contain_service('appd_db_agent').with(
               'ensure' => 'running',
-              'enable' => true
+              'enable' => true,
             )
           }
         end
