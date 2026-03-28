@@ -9,7 +9,7 @@ describe 'appd_db_agent', type: :class do
       version: '4.4.1.229',
       controller_host_name: 'exampleorg.saas.appdynamics.com',
       controller_port: 443,
-      agent_account_access_key: 'secretsecret'
+      agent_account_access_key: 'secretsecret',
     }
   end
 
@@ -30,7 +30,7 @@ describe 'appd_db_agent', type: :class do
               'ensure' => 'file',
               'owner' => 'root',
               'group' => 'root',
-              'mode' => '0600'
+              'mode' => '0600',
             )
           }
 
@@ -40,12 +40,12 @@ describe 'appd_db_agent', type: :class do
         describe '/etc/sysconfig/appd_db_agent content' do
           context 'with all required parameters' do
             it {
-              expect(subject).to contain_file('/etc/sysconfig/appd_db_agent').
-                with_content(%r{^APPDYNAMICS_CONTROLLER_HOST_NAME=exampleorg\.saas\.appdynamics\.com$}).
-                with_content(%r{^APPDYNAMICS_CONTROLLER_PORT=443$}).
-                with_content(%r{^APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY=secretsecret$}).
-                without_content(%r{APPDYNAMICS_AGENT_ACCOUNT_NAME}).
-                without_content(%r{APPDYNAMICS_CONTROLLER_SSL_ENABLED})
+              expect(subject).to contain_file('/etc/sysconfig/appd_db_agent')
+                .with_content(%r{^APPDYNAMICS_CONTROLLER_HOST_NAME=exampleorg\.saas\.appdynamics\.com$})
+                .with_content(%r{^APPDYNAMICS_CONTROLLER_PORT=443$})
+                .with_content(%r{^APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY=secretsecret$})
+                .without_content(%r{APPDYNAMICS_AGENT_ACCOUNT_NAME})
+                .without_content(%r{APPDYNAMICS_CONTROLLER_SSL_ENABLED})
             }
           end
 
@@ -55,8 +55,8 @@ describe 'appd_db_agent', type: :class do
             end
 
             it {
-              expect(subject).to contain_file('/etc/sysconfig/appd_db_agent').
-                with_content(%r{^APPDYNAMICS_AGENT_ACCOUNT_NAME=someaccountname$})
+              expect(subject).to contain_file('/etc/sysconfig/appd_db_agent')
+                .with_content(%r{^APPDYNAMICS_AGENT_ACCOUNT_NAME=someaccountname$})
             }
           end
 
@@ -67,8 +67,8 @@ describe 'appd_db_agent', type: :class do
               end
 
               it {
-                expect(subject).to contain_file('/etc/sysconfig/appd_db_agent').
-                  with_content(%r{^APPDYNAMICS_CONTROLLER_SSL_ENABLED=true$})
+                expect(subject).to contain_file('/etc/sysconfig/appd_db_agent')
+                  .with_content(%r{^APPDYNAMICS_CONTROLLER_SSL_ENABLED=true$})
               }
             end
 
@@ -78,8 +78,8 @@ describe 'appd_db_agent', type: :class do
               end
 
               it {
-                expect(subject).to contain_file('/etc/sysconfig/appd_db_agent').
-                  with_content(%r{^APPDYNAMICS_CONTROLLER_SSL_ENABLED=false$})
+                expect(subject).to contain_file('/etc/sysconfig/appd_db_agent')
+                  .with_content(%r{^APPDYNAMICS_CONTROLLER_SSL_ENABLED=false$})
               }
             end
           end
@@ -89,8 +89,8 @@ describe 'appd_db_agent', type: :class do
           describe 'user parameter' do
             context 'when default' do
               it {
-                expect(subject).to contain_systemd__unit_file('appd_db_agent.service').
-                  with_content(%r{^User=appdynamics$})
+                expect(subject).to contain_systemd__unit_file('appd_db_agent.service')
+                  .with_content(%r{^User=appdynamics$})
               }
             end
 
@@ -100,8 +100,8 @@ describe 'appd_db_agent', type: :class do
               end
 
               it {
-                expect(subject).to contain_systemd__unit_file('appd_db_agent.service').
-                  with_content(%r{^User=someuser$})
+                expect(subject).to contain_systemd__unit_file('appd_db_agent.service')
+                  .with_content(%r{^User=someuser$})
               }
             end
           end
@@ -109,8 +109,8 @@ describe 'appd_db_agent', type: :class do
           describe 'java_home parameter' do
             context 'when default' do
               it {
-                expect(subject).to contain_systemd__unit_file('appd_db_agent.service').
-                  with_content(%r{^ExecStart=/usr/lib/jvm/java/jre/bin/java })
+                expect(subject).to contain_systemd__unit_file('appd_db_agent.service')
+                  .with_content(%r{^ExecStart=/usr/lib/jvm/java/jre/bin/java })
               }
             end
 
@@ -120,8 +120,8 @@ describe 'appd_db_agent', type: :class do
               end
 
               it {
-                expect(subject).to contain_systemd__unit_file('appd_db_agent.service').
-                  with_content(%r{^ExecStart=/path/to/javahome/jre/bin/java })
+                expect(subject).to contain_systemd__unit_file('appd_db_agent.service')
+                  .with_content(%r{^ExecStart=/path/to/javahome/jre/bin/java })
               }
             end
           end
@@ -129,8 +129,8 @@ describe 'appd_db_agent', type: :class do
           describe 'java_opts' do
             context 'by default' do
               it {
-                expect(subject).to contain_systemd__unit_file('appd_db_agent.service').
-                  with_content(%r{^ExecStart=/usr/lib/jvm/java/jre/bin/java -Xms256m -Xmx256m -jar /opt/appdynamics/dbagent/db-agent\.jar -XX:\+ExitOnOutOfMemoryError})
+                expect(subject).to contain_systemd__unit_file('appd_db_agent.service')
+                  .with_content(%r{^ExecStart=/usr/lib/jvm/java/jre/bin/java -Xms256m -Xmx256m -jar /opt/appdynamics/dbagent/db-agent\.jar -XX:\+ExitOnOutOfMemoryError})
               }
             end
 
@@ -138,39 +138,39 @@ describe 'appd_db_agent', type: :class do
               let :params do
                 required_parameters.merge(
                   proxy_host: 'squid.example.com',
-                  proxy_port: 3128
+                  proxy_port: 3128,
                 )
               end
 
               it {
-                expect(subject).to contain_systemd__unit_file('appd_db_agent.service').
-                  with_content(%r{^ExecStart=/usr/lib/jvm/java/jre/bin/java -Dappdynamics\.http\.proxyHost=squid\.example\.com -Dappdynamics\.http\.proxyPort=3128 -Xms256m -Xmx256m -jar /opt/appdynamics/dbagent/db-agent\.jar -XX:\+ExitOnOutOfMemoryError})
+                expect(subject).to contain_systemd__unit_file('appd_db_agent.service')
+                  .with_content(%r{^ExecStart=/usr/lib/jvm/java/jre/bin/java -Dappdynamics\.http\.proxyHost=squid\.example\.com -Dappdynamics\.http\.proxyPort=3128 -Xms256m -Xmx256m -jar /opt/appdynamics/dbagent/db-agent\.jar -XX:\+ExitOnOutOfMemoryError})
               }
             end
 
             context 'with db_agent_name set' do
               let :params do
                 required_parameters.merge(
-                  db_agent_name: 'someagentname'
+                  db_agent_name: 'someagentname',
                 )
               end
 
               it {
-                expect(subject).to contain_systemd__unit_file('appd_db_agent.service').
-                  with_content(%r{^ExecStart=/usr/lib/jvm/java/jre/bin/java -Ddbagent\.name=someagentname -Xms256m -Xmx256m -jar /opt/appdynamics/dbagent/db-agent\.jar -XX:\+ExitOnOutOfMemoryError})
+                expect(subject).to contain_systemd__unit_file('appd_db_agent.service')
+                  .with_content(%r{^ExecStart=/usr/lib/jvm/java/jre/bin/java -Ddbagent\.name=someagentname -Xms256m -Xmx256m -jar /opt/appdynamics/dbagent/db-agent\.jar -XX:\+ExitOnOutOfMemoryError})
               }
             end
 
             context 'with java_heap_size set' do
               let :params do
                 required_parameters.merge(
-                  java_heap_size: '1G'
+                  java_heap_size: '1G',
                 )
               end
 
               it {
-                expect(subject).to contain_systemd__unit_file('appd_db_agent.service').
-                  with_content(%r{^ExecStart=/usr/lib/jvm/java/jre/bin/java -Xms1G -Xmx1G -jar /opt/appdynamics/dbagent/db-agent\.jar -XX:\+ExitOnOutOfMemoryError})
+                expect(subject).to contain_systemd__unit_file('appd_db_agent.service')
+                  .with_content(%r{^ExecStart=/usr/lib/jvm/java/jre/bin/java -Xms1G -Xmx1G -jar /opt/appdynamics/dbagent/db-agent\.jar -XX:\+ExitOnOutOfMemoryError})
               }
             end
 
@@ -180,13 +180,13 @@ describe 'appd_db_agent', type: :class do
                   proxy_host: 'squid.example.com',
                   proxy_port: 3128,
                   db_agent_name: 'someagentname',
-                  java_heap_size: '1G'
+                  java_heap_size: '1G',
                 )
               end
 
               it {
-                expect(subject).to contain_systemd__unit_file('appd_db_agent.service').
-                  with_content(%r{^ExecStart=/usr/lib/jvm/java/jre/bin/java -Dappdynamics\.http\.proxyHost=squid\.example\.com -Dappdynamics\.http\.proxyPort=3128 -Ddbagent\.name=someagentname -Xms1G -Xmx1G -jar /opt/appdynamics/dbagent/db-agent\.jar -XX:\+ExitOnOutOfMemoryError})
+                expect(subject).to contain_systemd__unit_file('appd_db_agent.service')
+                  .with_content(%r{^ExecStart=/usr/lib/jvm/java/jre/bin/java -Dappdynamics\.http\.proxyHost=squid\.example\.com -Dappdynamics\.http\.proxyPort=3128 -Ddbagent\.name=someagentname -Xms1G -Xmx1G -jar /opt/appdynamics/dbagent/db-agent\.jar -XX:\+ExitOnOutOfMemoryError})
               }
             end
           end
