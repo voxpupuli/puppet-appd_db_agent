@@ -169,4 +169,3 @@ Data type: `Stdlib::Unixpath`
 The java home of the JRE you want to use.
 
 Default value: `'/usr/lib/jvm/java'`
-
