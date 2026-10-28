@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v2.0.0](https://github.com/voxpupuli/puppet-appd_db_agent/tree/v2.0.0) (2026-10-28)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-appd_db_agent/compare/v1.0.0...v2.0.0)
+
+**Breaking changes:**
+
+- Drop puppet, update openvox minimum version to 8.19 [\#80](https://github.com/voxpupuli/puppet-appd_db_agent/pull/80) ([TheMeier](https://github.com/TheMeier))
+
+**Implemented enhancements:**
+
+- puppet/systemd: Allow 11.x [\#91](https://github.com/voxpupuli/puppet-appd_db_agent/pull/91) ([bastelfreak](https://github.com/bastelfreak))
+- Update requirements to allow OpenVox 9 [\#90](https://github.com/voxpupuli/puppet-appd_db_agent/pull/90) ([sebastianrakel](https://github.com/sebastianrakel))
+- puppet/archive: Allow 8.x, puppetlabs/java Allow 10.x [\#79](https://github.com/voxpupuli/puppet-appd_db_agent/pull/79) ([TheMeier](https://github.com/TheMeier))
+- metadata.json: Add OpenVox [\#75](https://github.com/voxpupuli/puppet-appd_db_agent/pull/75) ([jstraw](https://github.com/jstraw))
+- puppet/systemd: allow 8.x [\#72](https://github.com/voxpupuli/puppet-appd_db_agent/pull/72) ([jay7x](https://github.com/jay7x))
+- update puppet-systemd upper bound to 8.0.0 [\#65](https://github.com/voxpupuli/puppet-appd_db_agent/pull/65) ([TheMeier](https://github.com/TheMeier))
+
+**Merged pull requests:**
+
+- .fixtures.yml: cleanup [\#78](https://github.com/voxpupuli/puppet-appd_db_agent/pull/78) ([TheMeier](https://github.com/TheMeier))
+
 ## [v1.0.0](https://github.com/voxpupuli/puppet-appd_db_agent/tree/v1.0.0) (2024-04-24)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-appd_db_agent/compare/v0.3.1...v1.0.0)
